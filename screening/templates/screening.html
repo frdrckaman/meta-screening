@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>META</title>
+    <link rel="apple-touch-icon" href="{% static 'screening/app-assets/images/ico/apple-icon-120.html' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.pixinvent.com/demo/frest-clean-bootstrap-admin-dashboard-template/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="a{% static 'screening/app-assets/vendors/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/vendors/css/pickers/pickadate/pickadate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/vendors/css/pickers/daterange/daterangepicker.css' %}">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/css/bootstrap-extended.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/css/colors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/css/components.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/css/themes/dark-layout.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/css/themes/semi-dark-layout.min.css' %}">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/app-assets/css/core/menu/menu-types/vertical-menu.min.css' %}">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'screening/assets/css/style.css' %}">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+<body class="vertical-layout vertical-menu-modern 1-column  navbar-sticky footer-static bg-full-screen-image  blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+<!-- BEGIN: Content-->
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body"><!-- login page start -->
+            <section id="auth-login" class="row flexbox-container">
+                <div class="col-xl-8 col-11">
+                    <div class="card bg-authentication mb-0">
+                        <div class="row m-0">
+                            <!-- left section-login -->
+                            <div class="col-md-12 col-12 px-0">
+                                <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
+                                    <div class="card-header pb-1">
+                                        <a href="#" class="bx-pull-right">Logout</a>
+                                        <div class="card-title">
+                                            <h4 class="text-center mb-2">META SCREENING</h4>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            {% for message in messages %}
+                                                <div class="alert alert-success alert-dismissible mb-2" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="bx bx-like"></i>
+                                                    <span>
+                                                        Good! {{ message }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            <form method="POST">
+                                                {% csrf_token %}
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">1. Has the subject given his/her verbal consent to be screened for the META trial?</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="verbal_consent" id="radio1" checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="verbal_consent" id="radio2">
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">2. Report Date and Time</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">Date</label>
+                                                                <input type="text" name="date" class="form-control pickadate" placeholder="Select Date">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">Time</label>
+                                                                <input type="text" name="time" class="form-control pickatime" placeholder="Select Time">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <div class="form-group">
+                                                                <label for="contact-info-vertical" style="font-weight: bold;font-size: small">3. Hospital identifier:</label>
+                                                                <input type="text" id="contact-info-vertical" class="form-control" name="hospital_id" placeholder="Enter Hospital identifier">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <div class="form-group">
+                                                                <label for="password-vertical" style="font-weight: bold;font-size: small">4. Initials</label>
+                                                                <input type="text" id="password-vertical" class="form-control" name="initials" placeholder="Enter initials">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">5. Gender</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="gender"  checked>
+                                                                    <label for="radio1" >Male</label>
+                                                                    <input type="radio" name="gender" >
+                                                                    <label for="radio2" >Female</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="age" style="font-weight: bold;font-size: small">6. Age in years:</label>
+                                                                <input type="number" id="age" class="form-control" name="age" placeholder="Enter age">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">7. Ethnicity</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="ethnicity"  checked>
+                                                                    <label for="radio1" >Black</label>
+                                                                    <input type="radio" name="ethnicity" >
+                                                                    <label for="radio2" >Others</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">8. Is the patient HIV positive</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="hiv"  checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="hiv" >
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">9. Has the patient been on anti-retroviral therapy for at least 6 months:</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="arv"  checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="arv" >
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">10. Is the patient considered to be stable on treatment :</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="treatment"  checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="treatment" >
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">11. Is the patient living within the catchment population of the facility:</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="live_in_catchment"  checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="live_in_catchment" >
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">12. Is the patient planning to remain in the catchment area for at least 6 months:</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="remain_in_catchment"  checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="remain_in_catchment" >
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">13. Is the patient pregnant?</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="pregnant"  checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="pregnant" >
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" style="font-weight: bold;font-size: small">14. Participant or legal guardian/representative able and willing to give informed consent.</label>
+                                                                <div class="form-control">
+                                                                    <input type="radio" name="informed_consent"  checked>
+                                                                    <label for="radio1" >Yes</label>
+                                                                    <input type="radio" name="informed_consent" >
+                                                                    <label for="radio2" >No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 d-flex justify-content-end">
+                                                            <input type="submit" value="SAVE" class="btn btn-primary mr-1 mb-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- right section image -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- login page ends -->
+
+        </div>
+    </div>
+</div>
+<!-- END: Content-->
+
+
+<script src="{% static 'screening/app-assets/vendors/js/vendors.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.defaults.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.min.js' %}"></script>
+<!-- BEGIN Vendor JS-->
+
+<!-- BEGIN: Page Vendor JS-->
+<script src="{% static 'screening/app-assets/vendors/js/pickers/pickadate/picker.js' %}"></script>
+<script src="{% static 'screening/app-assets/vendors/js/pickers/pickadate/picker.date.js' %}"></script>
+<script src="{% static 'screening/app-assets/vendors/js/pickers/pickadate/picker.time.js' %}"></script>
+<script src="{% static 'screening/app-assets/vendors/js/pickers/pickadate/legacy.js' %}"></script>
+<script src="{% static 'screening/app-assets/vendors/js/pickers/daterange/moment.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/vendors/js/pickers/daterange/daterangepicker.js' %}"></script>
+<!-- END: Page Vendor JS-->
+
+<!-- BEGIN: Theme JS-->
+<script src="{% static 'screening/app-assets/js/scripts/configs/vertical-menu-light.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/js/core/app-menu.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/js/core/app.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/js/scripts/components.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/js/scripts/footer.min.js' %}"></script>
+<script src="{% static 'screening/app-assets/js/scripts/customizer.min.js' %}"></script>
+<!-- END: Theme JS-->
+
+<!-- BEGIN: Page JS-->
+<script src="{% static 'screening/app-assets/js/scripts/pickers/dateTime/pick-a-datetime.min.js' %}"></script>
+
+</body>
+<!-- END: Body-->
+
+</html>
