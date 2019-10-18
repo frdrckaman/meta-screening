@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from screening.models import ScreeningForm
+from screening.models import Screening
 from screening.forms import ScreeningCrf
 from django.contrib import messages
 

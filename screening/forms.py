@@ -1,9 +1,15 @@
+import re
 from django import forms
-from screening.models import ScreeningForm
+from screening.models import Screening
 
 
 class ScreeningCrf(forms.ModelForm):
+    def clean(self):
+        clean_data = self.changed_data
+        if not re.match("[A-Z]{1,3}", clean_data.get("initials")):
+            raise forms.ValidationError({"initials": "Must be all Caps. "})
+        return self.changed_data
+
     class Meta:
-        model = ScreeningForm
-        fields = ['verbal_consent', 'hospital_id', 'initials', 'gender', 'age', 'ethnicity', 'hiv',
-                  'arv', 'treatment', 'live_in_catchment', 'remain_in_catchment', 'pregnant', 'informed_consent']
+        model = Screening
+        fields = "__all__"
