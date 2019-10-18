@@ -3,7 +3,7 @@ from django import forms
 from screening.models import Screening
 
 
-class ScreeningCrf(forms.ModelForm):
+class ScreeningForm(forms.ModelForm):
     def clean(self):
         clean_data = self.changed_data
         if not re.match("[A-Z]{1,3}", clean_data.get("initials")):

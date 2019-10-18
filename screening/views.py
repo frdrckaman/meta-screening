@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from screening.models import Screening
-from screening.forms import ScreeningCrf
+from screening.forms import ScreeningForm
 from django.contrib import messages
 
 
@@ -8,7 +8,7 @@ from django.contrib import messages
 
 def screening(request):
     if request.method == 'POST':
-        form = ScreeningCrf(request.POST or None)
+        form = ScreeningForm(request.POST or None)
         if form.is_valid():
             form.save()
         messages.success(request, 'Record created successful')
