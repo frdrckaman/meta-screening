@@ -5,17 +5,9 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('screening', '0003_auto_20191016_0540'),
-    ]
+    dependencies = [("screening", "0003_auto_20191016_0540")]
 
     operations = [
-        migrations.RemoveField(
-            model_name='screeningform',
-            name='date',
-        ),
-        migrations.RemoveField(
-            model_name='screeningform',
-            name='time',
-        ),
+        migrations.RemoveField(model_name="screeningform", name="date"),
+        migrations.RemoveField(model_name="screeningform", name="time"),
     ]

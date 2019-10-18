@@ -7,27 +7,34 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ScreeningForm',
+            name="ScreeningForm",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('verbal_consent', models.BooleanField(default=False)),
-                ('hospital_id', models.CharField(max_length=20)),
-                ('initials', models.CharField(max_length=3)),
-                ('gender', models.BooleanField(default=False)),
-                ('age', models.CharField(max_length=3)),
-                ('ethnicity', models.BooleanField()),
-                ('hiv', models.BooleanField(default=False)),
-                ('arv', models.BooleanField(default=False)),
-                ('treatment', models.BooleanField(default=False)),
-                ('live_in_catchment', models.BooleanField(default=False)),
-                ('remain_in_catchment', models.BooleanField()),
-                ('pregnant', models.BooleanField(default=False)),
-                ('informed_consent', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("verbal_consent", models.BooleanField(default=False)),
+                ("hospital_id", models.CharField(max_length=20)),
+                ("initials", models.CharField(max_length=3)),
+                ("gender", models.BooleanField(default=False)),
+                ("age", models.CharField(max_length=3)),
+                ("ethnicity", models.BooleanField()),
+                ("hiv", models.BooleanField(default=False)),
+                ("arv", models.BooleanField(default=False)),
+                ("treatment", models.BooleanField(default=False)),
+                ("live_in_catchment", models.BooleanField(default=False)),
+                ("remain_in_catchment", models.BooleanField()),
+                ("pregnant", models.BooleanField(default=False)),
+                ("informed_consent", models.BooleanField(default=False)),
             ],
-        ),
+        )
     ]

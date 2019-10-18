@@ -5,14 +5,10 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('screening', '0002_auto_20191016_0539'),
-    ]
+    dependencies = [("screening", "0002_auto_20191016_0539")]
 
     operations = [
         migrations.AlterField(
-            model_name='screeningform',
-            name='date',
-            field=models.DateField(),
-        ),
+            model_name="screeningform", name="date", field=models.DateField()
+        )
     ]

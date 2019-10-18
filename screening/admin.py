@@ -5,6 +5,7 @@ from screening.forms import ScreeningForm
 
 # Register your models here.
 
+
 class ScreeningFormAdmin(admin.ModelAdmin):
     form = ScreeningForm
 

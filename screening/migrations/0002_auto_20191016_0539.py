@@ -6,19 +6,17 @@ import django.utils.timezone
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('screening', '0001_initial'),
-    ]
+    dependencies = [("screening", "0001_initial")]
 
     operations = [
         migrations.AddField(
-            model_name='screeningform',
-            name='date',
+            model_name="screeningform",
+            name="date",
             field=models.DateField(auto_now=True),
         ),
         migrations.AddField(
-            model_name='screeningform',
-            name='time',
+            model_name="screeningform",
+            name="time",
             field=models.TimeField(default=django.utils.timezone.now, verbose_name=2),
             preserve_default=False,
         ),

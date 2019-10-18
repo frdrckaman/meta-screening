@@ -5,13 +5,8 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('screening', '0004_auto_20191016_0543'),
-    ]
+    dependencies = [("screening", "0004_auto_20191016_0543")]
 
     operations = [
-        migrations.RenameModel(
-            old_name='ScreeningForm',
-            new_name='Screening',
-        ),
+        migrations.RenameModel(old_name="ScreeningForm", new_name="Screening")
     ]

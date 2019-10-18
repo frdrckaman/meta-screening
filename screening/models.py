@@ -2,10 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-GENDER = (
-    ('M', 'MALE'),
-    ('F', 'FEMALE')
-)
+GENDER = (("M", "MALE"), ("F", "FEMALE"))
 
 
 class Screening(models.Model):
