@@ -4,8 +4,6 @@ from screening.forms import ScreeningForm
 from django.contrib import messages
 
 
-# Create your views here.
-
 def screening(request):
     if request.method == 'POST':
         form = ScreeningForm(request.POST or None)
